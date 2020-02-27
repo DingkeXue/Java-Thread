@@ -2,7 +2,7 @@ package com.sxt.thread;
 
 /**
  * 并发：同一个对象，同一时间，多个线程共同抢夺资源
- * 加锁：在并发时保证数据的安全，分为方法锁和块锁
+ * 加锁：在并发时保证数据的安全，分为方法锁和块锁。锁的是对象的资源
  * @author Administrator
  *
  */
@@ -20,6 +20,7 @@ class Web12306 implements Runnable {
 	private int tickets = 10;
 	private boolean flag = true;
 	@Override
+	// 同步方法
 	public synchronized void run() {
 		// TODO Auto-generated method stub
 		while(flag) {
