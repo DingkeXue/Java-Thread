@@ -1,7 +1,7 @@
 package com.sxt.thread;
 
 /**
- * 同步块：安全 synchronized(对象) {}
+ * 同步块（目标更明确）：安全 synchronized(对象) {}
  * @author Administrator
  * 取钱问题：加锁（安全）
  */
@@ -38,7 +38,11 @@ class Drawing2 implements Runnable {
 	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		// 提高性能
+		if (account.total <= 0) {
+			return;
+		}
+		// 同步块
 		synchronized (account) {
 			if (this.account.total > getMoney) {
 				try {
